@@ -14,7 +14,6 @@ cask "iqiyi" do
   end
 
   depends_on macos: ">= :catalina"
-  auto_updates true
   app "爱奇艺.app"
 
   zap trash: [
