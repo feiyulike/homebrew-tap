@@ -28,7 +28,7 @@ cask "feishu" do
   auto_updates true
 
   # Renamed for consistency: app name is different in the Finder and in a shell.
-  app "飞书.app"
+  app "Lark.app", target: "飞书.app"
 
   zap trash: [
     # feishu
