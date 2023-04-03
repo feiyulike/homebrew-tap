@@ -1,3 +1,4 @@
+require 'open-uri'
 cask "iqiyi" do
   version "latest"
   sha256 :no_check
@@ -6,7 +7,6 @@ cask "iqiyi" do
   name "爱奇艺视频"
   desc "Interactive media player"
   homepage "https://www.iqiyi.com/"
-  require 'open-uri'
   page_content = URI.open(url).read
   download_link = page_content.match(/<a[^>]+class="[^"]*dl-installer[^"]*"[^>]+href="([^"]*)"[^>]*>/)[1]
   installer script: {}
