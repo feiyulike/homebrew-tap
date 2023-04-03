@@ -4,7 +4,7 @@ cask "iqiyi" do
 
   url do
     pattern = /https:\/\/.*\.dmg/
-    latest = curl("https://stc.iqiyipic.com/js/qiyiV2/20230220102415/jobs/pc/appDownloadByMac.js").match(regex).captures.last
+    latest = curl("https://stc.iqiyipic.com/js/qiyiV2/20230220102415/jobs/pc/appDownloadByMac.js").match(regex)[2]
     latest
   end
   name "爱奇艺视频"
