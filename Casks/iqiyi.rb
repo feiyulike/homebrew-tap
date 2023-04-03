@@ -10,6 +10,7 @@ cask "iqiyi" do
   page_content = URI.open(url.to_s).read
   download_link = page_content.match(/<a[^>]+class="[^"]*dl-installer[^"]*"[^>]+href="([^"]*)"[^>]*>/)[1]
   installer script: {}
+  put download_link
   appcast download_link
   livecheck do
     url "https://app.iqiyi.com/mac/player/index.html"
