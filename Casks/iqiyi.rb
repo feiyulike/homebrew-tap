@@ -1,3 +1,4 @@
+require 'open-uri'
 cask "iqiyi" do
   version "latest"
   sha256 :no_check
