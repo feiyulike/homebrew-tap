@@ -4,7 +4,8 @@ cask "iqiyi" do
 
   url do
     pattern = /<a\s+class=".*?\bdl-installer\b.*?"\s+href="([\w:\/\.\-]+)"/
-    latest = curl("https://app.iqiyi.com/mac/player/index.html").match(regex).captures.first
+    # latest = curl("https://app.iqiyi.com/mac/player/index.html").match(regex).captures.first
+    latest=URI.open("https://app.iqiyi.com/mac/player/index.html").read
     latest
   end
   name "爱奇艺视频"
