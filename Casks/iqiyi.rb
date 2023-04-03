@@ -1,5 +1,5 @@
 cask "iqiyi" do
-  version "14.3.0"
+  version :latest
   sha256 :no_check
 
   url do
