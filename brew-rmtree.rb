@@ -1,6 +1,6 @@
 class BrewRmtree < Formula
     homepage "https://github.com/feiyulike/homebrew-tap"
-    url "https://github.com/feiyulike/homebrew-tap.git", :tag => "2.2.6"
+    url "https://github.com/feiyulike/homebrew-tap.git"
     revision 1
   
     head "https://github.com/feiyulike/homebrew-tap.git"
