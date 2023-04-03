@@ -2,14 +2,14 @@ cask "iqiyi" do
   version "latest"
   sha256 :no_check
 
-  url do
-    latest=curl("https://app.iqiyi.com/mac/player/index.html").match(/<a[^>]+class="[^"]*dl-installer[^"]*"[^>]+href="([^"]*)"[^>]*>/)[1]
-    latest
-  end
+  url 'https://app.iqiyi.com/mac/player/index.html'
   name "爱奇艺视频"
   desc "Interactive media player"
   homepage "https://www.iqiyi.com/"
- 
+  page_content = URI.open(url.to_s).read
+  download_link = page_content.match(/<a[^>]+class="[^"]*dl-installer[^"]*"[^>]+href="([^"]*)"[^>]*>/)[1]
+  installer script: {}
+  appcast download_link
   livecheck do
     url "https://app.iqiyi.com/mac/player/index.html"
     strategy :page_match
