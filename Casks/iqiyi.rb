@@ -1,12 +1,10 @@
-require 'open-uri'
 cask "iqiyi" do
   version "latest"
   sha256 :no_check
 
   url do
-    pattern = /<a\s+class=".*?\bdl-installer\b.*?"\s+href="([\w:\/\.\-]+)"/
-    # latest = curl("https://app.iqiyi.com/mac/player/index.html").match(regex).captures.first
-    latest=URI.open("https://app.iqiyi.com/mac/player/index.html").read
+    pattern = /https:\/\/.*\.dmg/
+    latest = curl("https://stc.iqiyipic.com/js/qiyiV2/20230220102415/jobs/pc/appDownloadByMac.js").match(regex).captures.last
     latest
   end
   name "爱奇艺视频"
