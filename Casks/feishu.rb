@@ -5,7 +5,7 @@ cask "feishu" do
   latest_version = JSON.parse(latest)['versions']['MacOS']['version_number'].split("@V")[1]
   puts latest_version
   sha256 :no_check
-  version "6.1.5"
+  version "#{latest_version}"
   url do
     JSON.parse(latest)['versions']['MacOS']['download_link']
   end
