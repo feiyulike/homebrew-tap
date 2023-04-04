@@ -14,7 +14,7 @@ cask "ysyy" do
   
   livecheck do
     url "https://app.cctv.com/"
-    regex(%r{pcDown[\s\S]*https:\/\/.*ysyy_v([\d.]+).*\.zip"[\s]*class="mac"}i)
+    regex(/pcDown[\s\S]*https:\/\/.*ysyy_v([\d.]+).*\.zip"[\s]*class="mac"/)
     strategy :page_match do |page|
       page.scan(regex)
           .map { |match| "#{match[1]}" }
