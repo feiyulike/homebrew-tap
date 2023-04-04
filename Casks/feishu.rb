@@ -2,7 +2,7 @@ require 'open-uri'
 require 'json'
 cask "feishu" do
   latest =URI.open('https://www.feishu.cn/api/downloads').read
-  url latest['versions']
+  url latest['versions']['MacOS']['download_link']
 
   name "Feishu"
   desc "Project management software"
