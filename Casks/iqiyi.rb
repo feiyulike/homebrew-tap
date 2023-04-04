@@ -1,7 +1,7 @@
 require 'open-uri'
 cask "iqiyi" do
-  project=URI.open('https://stc.iqiyipic.com/js/qiyiV2/appDownloadByMac_ver.js').read
-  puts project.match(/projectVersion:"(.*?)"/)[1]
+  project=URI.open('https://stc.iqiyipic.com/js/qiyiV2/appDownloadByMac_ver.js').read..match(/projectVersion:"(.*?)"/)[1]
+  puts project
   version "14.3.0"
   sha256 :no_check
   url "https://static-d.iqiyi.com/ext/common/iQIYIMedia_271.dmg"
