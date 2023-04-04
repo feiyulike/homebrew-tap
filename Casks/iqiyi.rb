@@ -4,7 +4,6 @@ cask "iqiyi" do
   puts project
   version "14.3.0"
   sha256 :no_check
-  https://stc.iqiyipic.com/js/lib/sea1.2.jenkins-feLibRelease-100.js
   url "https://static-d.iqiyi.com/ext/common/iQIYIMedia_271.dmg"
   name "爱奇艺视频"
   desc "Interactive media player"
