@@ -6,7 +6,7 @@ cask "feishu" do
   puts latest_version
   sha256 :no_check
   def version
-    "6.1.5"
+    "6.1.5,123"
   end
   url do
     JSON.parse(latest)['versions']['MacOS']['download_link']
