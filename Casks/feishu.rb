@@ -21,7 +21,7 @@ cask "feishu" do
           .map { |match| "#{match[1]}" }
     end
   end
-
+  conflicts_with cask: "feishu"
   auto_updates true
 
   # Renamed for consistency: app name is different in the Finder and in a shell.
