@@ -2,10 +2,11 @@ require 'open-uri'
 require 'json'
 cask "ysyy" do
   latest=URI.open('https://app.cctv.com/').read.match(/pcDown[\s\S]*(https:\/\/.*.zip)"[\s]*class="mac"/)[1]
-  puts latest
+  latest_version=latest.match(/ysyy_v([\d.]+)/)[1]
+  puts latest_version
   sha256 :no_check
   version "#{latest_version}"
-  url "#{latest_url}"
+  url "#{latest}"
   # url latest['versions']
 
   name "ysyy"
