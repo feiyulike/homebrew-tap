@@ -1,5 +1,5 @@
 cask "feishu" do
-  latest =curl('https://www.feishu.cn/api/downloads').match(/https:\/\/.*Feishu.*darwin.*signed.*\.dmg/)
+  latest =JSON.parse(URI.open('https://www.feishu.cn/api/downloads').read)
   url latest
 
   name "Feishu"
