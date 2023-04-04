@@ -3,11 +3,10 @@ require 'json'
 cask "feishu" do
   latest=URI.open('https://www.feishu.cn/api/downloads').read
   latest_version = JSON.parse(latest)['versions']['MacOS']['version_number'].split("@V")[1]
+  latest_url=JSON.parse(latest)['versions']['MacOS']['download_link']
   sha256 :no_check
   version "#{latest_version}"
-  url do
-    JSON.parse(latest)['versions']['MacOS']['download_link']
-  end
+  url "#{latest_url}"
   # url latest['versions']
 
   name "Feishu"

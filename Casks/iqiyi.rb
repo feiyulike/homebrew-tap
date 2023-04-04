@@ -1,11 +1,11 @@
 require 'open-uri'
 cask "iqiyi" do
   project=URI.open('https://stc.iqiyipic.com/js/qiyiV2/appDownloadByMac_ver.js').read.match(/projectVersion:"(.*?)"/)[1]
-  latest=URI.open("https://stc.iqiyipic.com/js/qiyiV2/#{project}/jobs/pc/appDownloadByMac.js").read.match(/a="(https?:\/\/[\w-]+\.[\w-]+\.[\w-]+\/[^\s]*iQIYIMedia_([^\s]*\).dmg)"/)[1]
-  puts latest
-  version "14.3.0"
+  latest=URI.open("https://stc.iqiyipic.com/js/qiyiV2/#{project}/jobs/pc/appDownloadByMac.js").read.match(/a="(https?:\/\/[\w-]+\.[\w-]+\.[\w-]+\/[^\s]*iQIYIMedia_[^\s]*\.dmg)"/)[1]
+  latest_version=URI.open('https://app.iqiyi.com/mac/player/index.html').read.match(/.*最新版本：([\d.]+)/)[1]
+  version "#{latest_version}"
   sha256 :no_check
-  url "https://static-d.iqiyi.com/ext/common/iQIYIMedia_271.dmg"
+  url "#{latest}"
   name "爱奇艺视频"
   desc "Interactive media player"
   homepage "https://www.iqiyi.com/"
