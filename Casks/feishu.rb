@@ -1,6 +1,9 @@
 cask "feishu" do
-  url "https://sf3-cn.feishucdn.com/obj/ee-appcenter/#{version.csv.second}/Feishu-darwin_x64-#{version.csv.first}-signed.dmg",
-      verified: "sf3-cn.feishucdn.com/obj/ee-appcenter/"
+  url do
+    json_url = 'https://www.feishu.cn/api/downloads'
+    json_data = JSON.parse(`curl -s '#{json_url}'`)
+    json_data['MacOS']['download_link']
+  end
   name "Feishu"
   desc "Project management software"
   homepage "https://www.feishu.cn/"
@@ -17,7 +20,7 @@ cask "feishu" do
   auto_updates true
 
   # Renamed for consistency: app name is different in the Finder and in a shell.
-  app "Lark.app", target: "Feishu.app"
+  app "Lark.app", target: "飞书.app"
 
   zap trash: [
     # feishu
