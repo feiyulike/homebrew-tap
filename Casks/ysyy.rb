@@ -3,7 +3,6 @@ require 'json'
 cask "ysyy" do
   latest=URI.open('https://app.cctv.com/').read.match(/pcDown[\s\S]*(https:\/\/.*.zip)"[\s]*class="mac"/)[1]
   latest_version=latest.match(/ysyy_v([\d.]+)/)[1]
-  puts latest_version
   sha256 :no_check
   version "#{latest_version}"
   url "#{latest}"
@@ -14,8 +13,8 @@ cask "ysyy" do
   homepage "https://www.cctv.com"
   
   livecheck do
-    url "https://www.feishu.cn/api/downloads"
-    regex(%r{/(\h+)/Feishu[._-]darwin[._-]x64[._-]v?(\d+(?:\.\d+)+)[._-]signed\.dmg}i)
+    url "https://app.cctv.com/"
+    regex(%r{pcDown[\s\S]*https:\/\/.*ysyy_v([\d.]+).*\.zip"[\s]*class="mac"}i)
     strategy :page_match do |page|
       page.scan(regex)
           .map { |match| "#{match[1]}" }
