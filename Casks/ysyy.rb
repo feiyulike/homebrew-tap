@@ -16,7 +16,7 @@ cask "ysyy" do
     url "https://app.cctv.com/"
     regex(/pcDown[\s\S]*(https:\/\/.*.zip)"[\s]*class="mac"/)
     strategy :page_match do |page|
-      "#{page}"
+      "#{page.scan(regex)}"
       # page.scan(regex)
       #     .map { |match| "#{match[1]}" }
     end
