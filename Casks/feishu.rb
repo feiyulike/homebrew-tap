@@ -1,3 +1,5 @@
+require 'open-uri'
+require 'json'
 cask "feishu" do
   latest =JSON.parse(URI.open('https://www.feishu.cn/api/downloads').read)
   url latest
