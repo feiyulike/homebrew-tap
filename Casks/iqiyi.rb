@@ -1,3 +1,4 @@
+# encoding: ASCII-8BIT
 require 'open-uri'
 cask "iqiyi" do
   project=URI.open('https://stc.iqiyipic.com/js/qiyiV2/appDownloadByMac_ver.js').read.match(/projectVersion:"(.*?)"/)[1]
