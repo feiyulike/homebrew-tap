@@ -3,11 +3,7 @@ require 'json'
 cask "feishu" do
   latest =URI.open('https://www.feishu.cn/api/downloads').read
   version do
-    url "https://www.feishu.cn/api/downloads"
-    regex(%r{/(\h+)/Feishu[._-]darwin[._-]x64[._-]v?(\d+(?:\.\d+)+)[._-]signed\.dmg}i)
-    strategy :page_match do |page|
-      page.scan(regex)
-          .map { |match| "#{match[1]},#{match[0]}" }
+    JSON.parse(latest)['versions']['MacOS']['hash']
   end
   url do
     JSON.parse(latest)['versions']['MacOS']['download_link']
