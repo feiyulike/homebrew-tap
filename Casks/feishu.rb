@@ -1,6 +1,6 @@
 require 'open-uri'
 require 'json'
-cask "feishu" do
+cask "lark" do
   latest=URI.open('https://www.feishu.cn/api/downloads').read
   latest_version = JSON.parse(latest)['versions']['MacOS']['version_number'].split("@V")[1]
   latest_url=JSON.parse(latest)['versions']['MacOS']['download_link']
@@ -9,8 +9,8 @@ cask "feishu" do
   url "#{latest_url}"
   # url latest['versions']
 
-  name "Feishu"
-  desc "Project management software"
+  name "Lark"
+  desc "feishu macos x64 apoo"
   homepage "https://www.feishu.cn/"
   
   livecheck do
@@ -21,7 +21,7 @@ cask "feishu" do
           .map { |match| "#{match[1]}" }
     end
   end
-  # conflicts_with cask: "feishu"
+  conflicts_with cask: "feishu"
   auto_updates true
 
   # Renamed for consistency: app name is different in the Finder and in a shell.
