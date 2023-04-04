@@ -1,5 +1,5 @@
 cask "feishu" do
-  latest =curl('https://www.feishu.cn/api/downloads')
+  latest =JSON.parse(curl('https://www.feishu.cn/api/downloads'))
   url latest
 
   name "Feishu"
