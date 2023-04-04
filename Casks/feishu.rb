@@ -2,8 +2,8 @@ require 'open-uri'
 require 'json'
 cask "feishu" do
   latest =URI.open('https://www.feishu.cn/api/downloads').read
-  pattern = /"download_link":"(.*Feishu-darwin_arm64.*\.dmg)"/
-  url latest.scan(pattern)[0][0]
+  puts latest
+  # url latest['versions']
 
   name "Feishu"
   desc "Project management software"
