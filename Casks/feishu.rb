@@ -6,7 +6,7 @@ cask "feishu" do
   puts latest_version
   sha256 :no_check
   def version
-    "6.1.5,123"
+    "6.1.5"
   end
   url do
     JSON.parse(latest)['versions']['MacOS']['download_link']
@@ -22,7 +22,7 @@ cask "feishu" do
     regex(%r{/(\h+)/Feishu[._-]darwin[._-]x64[._-]v?(\d+(?:\.\d+)+)[._-]signed\.dmg}i)
     strategy :page_match do |page|
       page.scan(regex)
-          .map { |match| "MacOS-Apple@V#{match[1]}" }
+          .map { |match| "#{match[1]}" }
     end
   end
 
