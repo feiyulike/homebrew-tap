@@ -1,9 +1,11 @@
 require 'open-uri'
 require 'json'
 cask "feishu" do
-  version 'latest'
+  latest =URI.open('https://www.feishu.cn/api/downloads').read
+  version do
+    JSON.parse(latest)['versions']['MacOS']['version_number']
+  end
   url do
-    latest =URI.open('https://www.feishu.cn/api/downloads').read
     JSON.parse(latest)['versions']['MacOS']['download_link']
   end
   # url latest['versions']
