@@ -1,6 +1,6 @@
 require 'open-uri'
 require 'json'
-cask "fshu" do
+cask "fei-shu" do
   latest=URI.open('https://www.feishu.cn/api/downloads').read
   latest_version = JSON.parse(latest)['versions']['MacOS']['version_number'].split("@V")[1]
   latest_url=JSON.parse(latest)['versions']['MacOS']['download_link']
@@ -9,7 +9,7 @@ cask "fshu" do
   url "#{latest_url}"
   # url latest['versions']
 
-  name "Feishu"
+  name "fei-shu"
   desc "feishu macos x64 app"
   homepage "https://www.feishu.cn/"
   
