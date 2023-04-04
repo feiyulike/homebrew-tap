@@ -1,6 +1,6 @@
 cask "feishu" do
-  latest =curl('https://www.feishu.cn/api/downloads')
-  url JSON.parse(latest)
+  latest =curl('https://www.feishu.cn/api/downloads').match(/https:\/\/.*Feishu.*darwin.*signed.*\.dmg/)
+  url latest
 
   name "Feishu"
   desc "Project management software"
