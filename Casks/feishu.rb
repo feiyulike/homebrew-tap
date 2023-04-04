@@ -5,7 +5,7 @@ cask "feishu" do
   version "latest"
   def version
     latest_version = JSON.parse(latest)['versions']['MacOS']['version_number']
-    "MacOS-Apple@V#{latest_version}"
+    "#{latest_version}"
   end
   url do
     JSON.parse(latest)['versions']['MacOS']['download_link']
