@@ -1,7 +1,7 @@
 require 'open-uri'
 cask "iqiyi" do
   project=URI.open('https://stc.iqiyipic.com/js/qiyiV2/appDownloadByMac_ver.js').read.match(/projectVersion:"(.*?)"/)[1]
-  latest=URI.open("https://stc.iqiyipic.com/js/qiyiV2/#{project}/jobs/pc/appDownloadByMac.js").read.match(/a="(https?:\/\/[\w-]+\.[\w-]+\.[\w-]+\/[^\s]*iQIYIMedia_[^\s]*\.dmg)"/)[0]
+  latest=URI.open("https://stc.iqiyipic.com/js/qiyiV2/#{project}/jobs/pc/appDownloadByMac.js").read.match(/a="(https?:\/\/[\w-]+\.[\w-]+\.[\w-]+\/[^\s]*iQIYIMedia_[^\s]*\.dmg)"/)[1]
   puts latest
   version "14.3.0"
   sha256 :no_check
