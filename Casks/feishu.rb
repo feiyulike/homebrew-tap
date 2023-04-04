@@ -1,16 +1,23 @@
 cask "feishu" do
+  url "https://sf3-cn.feishucdn.com/obj/ee-appcenter/#{version.csv.second}/Feishu-darwin_x64-#{version.csv.first}-signed.dmg",
+      verified: "sf3-cn.feishucdn.com/obj/ee-appcenter/"
   name "Feishu"
   desc "Project management software"
   homepage "https://www.feishu.cn/"
-  def install
-      bin.install "cmd/brew-rmtree.rb"
+
+  livecheck do
+    url "https://www.feishu.cn/api/downloads"
+    regex(%r{/(\h+)/Feishu[._-]darwin[._-]#{arch}[._-]v?(\d+(?:\.\d+)+)[._-]signed\.dmg}i)
+    strategy :page_match do |page|
+      page.scan(regex)
+          .map { |match| "#{match[1]},#{match[0]}" }
+    end
   end
-    
 
   auto_updates true
 
   # Renamed for consistency: app name is different in the Finder and in a shell.
-  app "Feishu.app", target: "飞书.app"
+  app "Lark.app", target: "Feishu.app"
 
   zap trash: [
     # feishu
