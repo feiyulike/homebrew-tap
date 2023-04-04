@@ -1,13 +1,11 @@
 cask "feishu" do
-  url do
-    json_url = 'https://www.feishu.cn/api/downloads'
-    json_data = JSON.parse(`curl -s '#{json_url}'`)
-    json_data['MacOS']['download_link']
-  end
+  latest = JSON.parse(open('https://www.feishu.cn/api/downloads').read)['versions']['MacOS']
+  url latest['download_link']
+
   name "Feishu"
   desc "Project management software"
   homepage "https://www.feishu.cn/"
-
+  
   livecheck do
     url "https://www.feishu.cn/api/downloads"
     regex(%r{/(\h+)/Feishu[._-]darwin[._-]#{arch}[._-]v?(\d+(?:\.\d+)+)[._-]signed\.dmg}i)
