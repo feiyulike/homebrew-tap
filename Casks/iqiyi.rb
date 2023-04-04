@@ -16,7 +16,7 @@ cask "iqiyi" do
     strategy :page_match
     regex(/.*最新版本：([\d.]+)/i)
   end
-
+  auto_updates true
   depends_on macos: ">= :catalina"
   app "爱奇艺.app"
 
