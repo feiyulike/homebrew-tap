@@ -1,6 +1,6 @@
 require 'open-uri'
 require 'json'
-cask "lark" do
+cask "fshu" do
   latest=URI.open('https://www.feishu.cn/api/downloads').read
   latest_version = JSON.parse(latest)['versions']['MacOS']['version_number'].split("@V")[1]
   latest_url=JSON.parse(latest)['versions']['MacOS']['download_link']
@@ -9,7 +9,7 @@ cask "lark" do
   url "#{latest_url}"
   # url latest['versions']
 
-  name "Lark"
+  name "Feishu"
   desc "feishu macos x64 app"
   homepage "https://www.feishu.cn/"
   
@@ -25,7 +25,7 @@ cask "lark" do
   auto_updates true
 
   # Renamed for consistency: app name is different in the Finder and in a shell.
-  app "飞书.app"
+  app "Lark.app", target: "飞书.app"
 
   zap trash: [
     # feishu
