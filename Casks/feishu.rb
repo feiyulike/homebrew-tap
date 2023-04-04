@@ -1,5 +1,7 @@
+require 'open-uri'
+require 'json'
 cask "feishu" do
-  latest = JSON.parse(curl('https://www.feishu.cn/api/downloads'))['versions']['MacOS']
+  latest = JSON.parse(open('https://www.feishu.cn/api/downloads'))['versions']['MacOS']
   url latest['download_link']
 
   name "Feishu"
