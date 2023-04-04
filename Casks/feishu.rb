@@ -10,7 +10,7 @@ cask "lark" do
   # url latest['versions']
 
   name "Lark"
-  desc "feishu macos x64 apoo"
+  desc "feishu macos x64 app"
   homepage "https://www.feishu.cn/"
   
   livecheck do
@@ -25,7 +25,7 @@ cask "lark" do
   auto_updates true
 
   # Renamed for consistency: app name is different in the Finder and in a shell.
-  app "Lark.app", target: "飞书.app"
+  app "飞书.app"
 
   zap trash: [
     # feishu
