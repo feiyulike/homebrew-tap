@@ -1,5 +1,3 @@
-require 'open-uri'
-require 'json'
 cask "feishu" do
   latest=URI.open('https://www.feishu.cn/api/downloads').read
   latest_version = JSON.parse(latest)['versions']['MacOS']['version_number'].split("@V")[1]
