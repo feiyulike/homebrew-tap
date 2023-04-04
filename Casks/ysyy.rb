@@ -28,7 +28,7 @@ cask "ysyy" do
 
   zap trash: [
     # # feishu
-    # "~/Library/Caches/com.bytedance.lark.helper",
+    "~/Library/Containers/com.cntv.cboxmac",
     # "~/Library/Preferences/com.bytedance.lark.helper.plist",
     # # lark
     # "~/Library/Caches/com.electron.lark.helper",
