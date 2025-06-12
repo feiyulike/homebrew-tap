@@ -10,12 +10,12 @@ cask "fei-shu" do
   # url latest['versions']
 
   name "fei-shu"
-  desc "feishu macos x64 app"
+  desc "feishu macos arm64 app"
   homepage "https://www.feishu.cn/"
   
   livecheck do
     url "https://www.feishu.cn/api/downloads"
-    regex(%r{/(\h+)/Feishu[._-]darwin[._-]x64[._-]v?(\d+(?:\.\d+)+)[._-]signed\.dmg}i)
+    regex(%r{/(\h+)/Feishu[._-]darwin_arm64[._-]v?(\d+(?:\.\d+)+)[._-]signed\.dmg}i)
     strategy :page_match do |page|
       page.scan(regex)
           .map { |match| "#{match[1]}" }
